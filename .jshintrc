@@ -1,0 +1,13 @@
+{
+  "esnext": true,
+  "elision": true,
+  "boss": true,
+  "elision": true,
+  "eqeqeq": true,
+  "eqnull": true,
+  "expr": true,
+  "immed": true,
+  "latedef": true,
+  "undef": true,
+  "unused": true
+}
