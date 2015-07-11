@@ -3,16 +3,17 @@ import glob from 'glob';
 
 export default function importGlob(source) {
 	const options = loaderUtils.parseQuery(this.query);
+	// Default nodir to true
+	options.nodir = typeof options.nodir !== 'undefined' ? options.nodir : true;
+	options.cwd = this.context;
+
 	let { test = "import", delimiter = ', ' } = options;
 	const qualifier = new RegExp(`^.*\\b${test}\\b(.*)$`, 'gm');
-	const context = this.context;
 
 	function expandGlob(match, quote, content) {
 		if (!glob.hasMagic(content)) return match;
 
-		const opt = Object.create(options);
-		opt.cwd = context;
-		return glob.sync(content, opt)
+		return glob.sync(content, options)
 		.map(filename => `${quote}${filename}${quote}`)
 		.join(delimiter);
 	}
