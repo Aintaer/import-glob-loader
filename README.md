@@ -24,7 +24,7 @@ This usually applies to ES6 module `import` statements, CSS `@import` at-rules, 
 ```js
 {
   module: {
-    preloaders: [{
+    preLoaders: [{
       test: /\.scss/,
       loader: 'import-glob-loader'
     }]
