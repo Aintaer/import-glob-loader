@@ -22,6 +22,22 @@ You can use it one of two ways, the recommended way is to use it as a preloader 
 This usually applies to ES6 module `import` statements, CSS `@import` at-rules, and Sass `@import` statements.
 
 ```js
+
+// Webpack 2:
+
+module: {
+  rules: [
+    {
+      test: /\.scss/,
+      enforce: "pre",
+      loader: "import-glob-loader"
+    },
+    // ...
+  ]
+}
+
+// Webpack 1:
+
 {
   module: {
     preLoaders: [{
