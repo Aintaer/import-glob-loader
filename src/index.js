@@ -2,7 +2,7 @@ import loaderUtils from 'loader-utils';
 import glob from 'glob';
 
 export default function importGlob(source) {
-	const options = loaderUtils.parseQuery(this.query);
+	const options = loaderUtils.getOptions(this.query) || {};
 	// Default nodir to true
 	options.nodir = typeof options.nodir !== 'undefined' ? options.nodir : true;
 	options.cwd = this.context;
